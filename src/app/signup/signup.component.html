@@ -1,0 +1,41 @@
+<form [formGroup]="SignUpForm" >
+  <div class="form-group col-md-6">
+     <label>Full Name</label>
+     <input type="text" formControlName="fullname" class="form-control" placeholder="Full Name">
+     <span class="text-danger" *ngIf="SignUpForm.controls['fullname'].dirty && SignUpForm.hasError('required','fullname')">*Full name is Required</span>
+  </div>
+  <div class="form-group col-md-6">
+     <label>Mobile</label>
+     <input type="tel" formControlName="mobile" class="form-control" placeholder="Mobile">
+     <span class="text-danger" *ngIf="SignUpForm.controls['mobile'].dirty && SignUpForm.hasError('required','mobile')">*Mobile number is Required</span>
+  </div>
+  <div class="form-group col-md-6">
+     <label>User Name</label>
+     <input type="text" formControlName="username" class="form-control" placeholder="User Name">
+     <span class="text-danger" *ngIf="SignUpForm.controls['username'].dirty && SignUpForm.hasError('required','username')">*User name is Required</span>
+  </div>
+  <div class="form-group col-md-6">
+     <label>Password</label>
+     <input type="password" formControlName="password" class="form-control" placeholder="Passowrd">
+     <!-- <span class="text-danger" *ngIf="SignUpForm.controls['password'].dirty && SignUpForm.hasError('required','password')">*Password is Required</span> -->
+    <span class="text-danger" *ngIf="SignUpForm.controls['password'].dirty && SignUpForm.hasError('required','password')">*Password is required</span>
+
+  </div>
+  <div class="form-group mt-2">
+    <label for="exampleInputPassword1">User Type</label>
+    <select formControlName="usertype" class="form-select" aria-label="Default select example">
+        <option selected value="" >Select User Type</option>
+        <option value="Admin">Admin</option>
+        <option value="Employee">Employee</option>
+
+      </select>
+    <span class="text-danger" *ngIf="SignUpForm.controls['usertype'].dirty && SignUpForm.hasError('required','usertype')">*User type is required</span>
+</div>
+
+<button [disabled]="!SignUpForm.valid" (click)="SignUp()" class="btn btn-outline-warning">Save</button>
+
+
+
+
+
+</form>
